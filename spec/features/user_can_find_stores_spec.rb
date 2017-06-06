@@ -13,7 +13,7 @@ describe 'Dashboard' do
       expect(page).to have_content '16 Total Stores'
       expect(find('.stores')).to have_selector('div', count: 10)
 
-      within('#store1') do
+      within('#store0') do
         expect(page).to have_content 'Name: CHERRY CREEK MALL'
         expect(page).to have_content 'City: DENVER'
         expect(page).to have_content 'Distance: 3.45 Miles'
