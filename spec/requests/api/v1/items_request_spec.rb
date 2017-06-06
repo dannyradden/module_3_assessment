@@ -55,19 +55,13 @@ describe "Items API" do
 
   it "creates an item" do
     item_params = { name: "Cup", description: "Drink Me", image_url: 'www.cupimage.com' }
-    # 
-    # post '/api/v1/items?name='
-    #
-    # expect(response.status).to eq(200)
-    #
-    # item = JSON.parse(response.body)
-    #
-    # expect(item).to have_key("id")
-    # expect(item).to have_key("name")
-    # expect(item["name"]).to eq("item0")
-    # expect(item).to have_key("description")
-    # expect(item).to have_key("image_url")
-    # expect(item).to_not have_key("created_at")
-    # expect(item).to_not have_key("updated_at")
+
+    post '/api/v1/items', item: item_params
+
+    item = Item.last
+
+    expect(response.status).to eq(201)
+
+    expect(item.name).to eq('Cup')
   end
 end

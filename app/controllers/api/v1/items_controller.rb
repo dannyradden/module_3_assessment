@@ -11,4 +11,14 @@ class Api::V1::ItemsController < ApplicationController
     Item.destroy(params[:id])
     head :no_content
   end
+
+  def create
+    render json: Item.create(item_params), status: :created
+  end
+end
+
+private
+
+def item_params
+  params.require(:item).permit(:name, :description, :image_url)
 end
