@@ -1,3 +1,22 @@
 <h1>Best Buys in your area!</h1>
 
-<h2><%= @stores.count %> Total Stores</h2>
+<h2><%= @stores.total %> Total Stores</h2>
+<div class="stores">
+  <% @stores.stores.each_with_index do |store, i| %>
+    <div class="store<%= i %>">
+
+    </div>
+  <% end %>
+
+</div>
+
+
+<!-- expect(find('.stores')).to have_selector('div', count: 10)
+
+within('#store1') do
+  expect(page).to have_content 'Name: CHERRY CREEK MALL'
+  expect(page).to have_content 'City: DENVER'
+  expect(page).to have_content 'Distance: 3.45 Miles'
+  expect(page).to have_content 'Phone Number: 303-270-9189'
+  expect(page).to have_content 'Store Type: Mobile SAS'
+end -->
