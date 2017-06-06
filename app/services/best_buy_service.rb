@@ -9,7 +9,6 @@ class BestBuyService
     parse(connection.get("stores(area(#{location},25))",
                     { format: 'json',
                       show: 'storeId,storeType,name,city,distance,phone',
-                      pageSize: '10',
                       apiKey: ENV['BB_API_KEY'] }))
   end
 

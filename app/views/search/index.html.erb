@@ -1,14 +1,19 @@
-<h1>Best Buys in your area!</h1>
+<div class="container">
+  <h1>Best Buys in your area!</h1>
 
-<h2><%= @total %> Total Stores</h2>
-<div class="stores">
-  <% @stores.each_with_index do |store, i| %>
-    <div id="store<%= i %>">
-      Name: <%= store.name %>
-      City: <%= store.city %>
-      Distance: <%= store.distance %> Miles
-      Phone Number: <%= store.phone %>
-      Store Type: <%= store.storeType %>
-    </div>
-  <% end %>
+  <h3><%= @total %> Total Stores (10 shown at most)</h2>
+  <br>
+  <div class="stores">
+    <% @stores.each_with_index do |store, i| %>
+      <div id="store<%= i %>">
+        Name: <%= store.name %><br>
+        City: <%= store.city %><br>
+        Distance: <%= store.distance %> Miles<br>
+        Phone Number: <%= store.phone %><br>
+        Store Type: <%= store.storeType %><br>
+      </div>
+      <br>
+    <% end %>
+  </div>
+  <%= will_paginate @stores %>
 </div>
