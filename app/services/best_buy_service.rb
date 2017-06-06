@@ -6,12 +6,11 @@ class BestBuyService
   end
 
   def stores(location)
-    parse(connection.get("stores(area(#{location},25))" #&apiKey=tq72hpvtbbd4mue6f23kmsw2,
-                        { format: 'json',
-                          show: 'storeId,storeType,name,city,distance,phone&page',
-                          pageSize: 10,
-                          api_key: ENV['BB_API_KEY'] })
-
+    parse(connection.get("stores(area(#{location},25))",
+                    { format: 'json',
+                      show: 'storeId,storeType,name,city,distance,phone',
+                      pageSize: '10',
+                      apiKey: ENV['BB_API_KEY'] }))
   end
 
   private
